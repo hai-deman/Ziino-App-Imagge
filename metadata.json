@@ -1,0 +1,7 @@
+{
+  "name": "Ziino Hook Builder v2",
+  "description": "An automated tool to produce 15-40s video hooks based on trends, using the Ziino mascot and brand packs. It handles script generation, asset integration, and multi-format exporting.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
