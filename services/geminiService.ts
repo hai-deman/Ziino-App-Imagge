@@ -2,11 +2,16 @@ import { GoogleGenAI, Type, Modality, GenerateContentResponse } from "@google/ge
 import type { ScriptScene, BrandPack, HookConfig, MascotFile, ContentScore, ImageConfig } from '../types';
 import { HOOK_TEMPLATES } from '../data';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable is not set.");
+// FIX: Switched from import.meta.env to process.env.API_KEY to align with @google/genai guidelines
+// and resolve the TypeScript error "Property 'env' does not exist on type 'ImportMeta'".
+const apiKey = process.env.API_KEY;
+
+
+if (!apiKey) {
+    throw new Error("API_KEY environment variable is not set. Please set it in your project settings.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey });
 
 // =================================================================================
 // RETRY WRAPPER
